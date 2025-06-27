@@ -1,0 +1,17 @@
+Jane Doe
+
+Education
+- B.S. Computer Science, University of Missouri - St. Louis, 2023
+
+Experience
+- Software Engineering Intern, TechCorp, Summer 2023
+    - Worked with Python and JavaScript to improve internal tooling
+    - Automated spreadsheet tasks with pandas OpenPyXL
+
+Skills
+- Python, JavaScript, HTML/CSS
+- REST APIs, Git, SQL
+
+Certifications
+- AWS Certified Cloud Practitioner
+- Google Data Analytics Certificate
