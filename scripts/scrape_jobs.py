@@ -1,8 +1,10 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-API_KEY = "ee1cd589d8msh98daf3278fdb12fp11d1e3jsn0539a241ca03" 
+API_KEY = os.getenv("RAPIDAPI_KEY")
 
 url = "https://jsearch.p.rapidapi.com/search"
 querystring = {"query": "computer science, St. Louis", "page": "1", "num_pages": "2"}
