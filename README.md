@@ -36,6 +36,10 @@ pip install -r requirements.txt
 # or at a minimum
 pip install requests sentence-transformers numpy python-dotenv
 ```
+Then create a `.env` file in your project root with your keys:
+RAPIDAPI_KEY = your_rapidapi_key_here
+HF_API_TOKEN = your_huggingface_token_here
+
 Then run each stage:
 `python scripts/scrape_jobs.py`
 `python scripts/preprocess.py`
