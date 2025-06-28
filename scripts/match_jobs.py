@@ -1,5 +1,6 @@
 import numpy as np
 import json
+import os
 
 # Load embeddings
 resume_embedding = np.load("embeddings/resume_embedding.npy")
@@ -21,11 +22,21 @@ job_scores = list(zip(similarities, jobs))
 
 # Sort by similarity descending
 job_scores.sort(reverse=True, key=lambda x: x[0])
+top_matches = [
+    {
+        "rank": i+1,
+        "similarity": float(round(score, 4)),
+        "title": job["title"],
+        "company": job["company"],
+        "location": job["location"],
+        "snippet": job["description"][:200]
+    }
+    for i, (score, job) in enumerate(job_scores[:10])
+]
 
-# Print top 10
-print("\nTop 10 matched jobs:\n")
-for i, (score, job) in enumerate(job_scores[:10], start=1):
-    print(f"{i}. {job['title']} at {job['company']} in {job['location']}")
-    print(f"   Similarity: {score:.4f}")
-    print(f"   Description: {job['description'][:100]}...")
-    print()
+# Save to JSON
+os.makedirs("results", exist_ok=True)
+with open("results/top_matches.json", "w", encoding="utf-8") as f:
+    json.dump(top_matches, f, indent=2)
+
+print("Top 10 matches saved to results/top_matches.json")
